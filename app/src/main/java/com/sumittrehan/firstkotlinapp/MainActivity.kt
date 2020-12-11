@@ -11,46 +11,50 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val recyclerView:RecyclerView = findViewById(R.id.recycler_view)
-        val hobbiesList: List<String> = listOf(
-                "Coding",
-                "Playing",
-                "Music",
-                "Travel",
-                "Coding",
-                "Playing",
-                "Music",
-                "Travel",
-                "Coding",
-                "Playing",
-                "Music",
-                "Travel",
-                "Coding",
-                "Playing",
-                "Music",
-                "Travel",
-                "Coding",
-                "Playing",
-                "Music",
-                "Travel",
-                "Coding",
-                "Playing",
-                "Music",
-                "Travel",
-                "Coding",
-                "Playing",
-                "Music",
-                "Travel",
-                "Coding",
-                "Playing",
-                "Music",
-                "Travel",
-                "Coding",
-                "Playing",
-                "Music",
-                "Travel")
+        val hobbiesList: List<String> = HobbiesProvider.hobbiesList
+
         val hobbiesAdapter:HobbiesAdapter = HobbiesAdapter(this, hobbiesList)
         recyclerView.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
         recyclerView.adapter = hobbiesAdapter
     }
+}
 
+object HobbiesProvider {
+    val hobbiesList:List<String> = listOf(
+            "Coding",
+            "Playing",
+            "Music",
+            "Travel",
+            "Coding",
+            "Playing",
+            "Music",
+            "Travel",
+            "Coding",
+            "Playing",
+            "Music",
+            "Travel",
+            "Coding",
+            "Playing",
+            "Music",
+            "Travel",
+            "Coding",
+            "Playing",
+            "Music",
+            "Travel",
+            "Coding",
+            "Playing",
+            "Music",
+            "Travel",
+            "Coding",
+            "Playing",
+            "Music",
+            "Travel",
+            "Coding",
+            "Playing",
+            "Music",
+            "Travel",
+            "Coding",
+            "Playing",
+            "Music",
+            "Travel")
 }
