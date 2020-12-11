@@ -7,16 +7,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 
-class HobbiesAdapter(var conext: Context, var hobbiesList:List<String>): RecyclerView.Adapter<HobbiesAdapter.HobbyViewHolder>() {
+class HobbiesAdapter(var context: Context, var hobbiesList:List<String>): RecyclerView.Adapter<HobbiesAdapter.HobbyViewHolder>() {
 
-    private val TAG:String = "HoobiesAdapter"
+    private val TAG:String = "HobbiesAdapter"
 
-    class HobbyViewHolder(view: View):RecyclerView.ViewHolder(view) {
+    inner class HobbyViewHolder(view: View):RecyclerView.ViewHolder(view) {
         var textView: TextView? = null
         init {
             textView = view.findViewById(R.id.list_item_text_view)
+            view.setOnClickListener {
+                Toast.makeText(context, textView!!.text, Toast.LENGTH_SHORT).show()
+            }
         }
 
         fun bindData(hobby:String) {
@@ -26,7 +30,7 @@ class HobbiesAdapter(var conext: Context, var hobbiesList:List<String>): Recycle
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HobbyViewHolder {
         Log.d(TAG, "onCreateViewHolder()")
-        val view:View  = LayoutInflater.from(conext).inflate(R.layout.list_item, parent, false)
+        val view:View  = LayoutInflater.from(context).inflate(R.layout.list_item, parent, false)
         return HobbyViewHolder(view)
     }
 
